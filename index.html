@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>jlfsjunior's webpage</title>
+    <title>The Gospel of Joseph</title>
     <meta name="description" content="jlfsjunior on github">
     <meta name="author" content="jlfsjunior">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,31 +11,52 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.0-beta.4/vuetify.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+    <link href="www/style.css" rel="stylesheet" type="text/css"/>
     <script>
       $(document).ready(function(){
         var trigger = $('#navbar nav a');
         var container = $('#content');
 
         trigger.on('click', function(){
-          //console.log(this)
+          console.log(this)
           var target = $(this).data('target');
-          // console.log(target);
+          console.log(target);
           container.load(target);
         })
+
+        // Activate home.html
+        $('#content').load(
+          $('a[href$="#"]').data('target')
+        );
+        
       })
+
     </script>
   </head>
 
   <body>
     <div id="navbar" class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Home</a>
-        <a class="navbar-brand" href="#" data-target="about.html">About</a>
-        <a class="navbar-brand" href="#" data-target="projects.html">Projects</a>
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#" data-target="home.html">Home</a>
+        <a class="navbar-brand" href="#projects.html" data-target="projects.html">Projects</a>
+        <a class="navbar-brand" href="#posts.html" data-target="posts.html">Posts</a>
+        <a class="navbar-brand" href="#about" data-target="about.html">About</a>  
       </nav>
     </div>
-    <div id="content">
-      <?php include('about.php'); ?>
+    <div class="container">
+      <div class="row">
+        <div id="content">
+        </div>
+      </div>
     </div>
+
+      <!-- Footer -->
+    <footer id="footer" class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">The Gospel of Joseph, 2020.</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
   </body>
 </html>
